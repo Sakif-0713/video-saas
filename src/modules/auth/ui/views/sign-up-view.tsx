@@ -1,6 +1,6 @@
 'use client'
 import { Card, CardContent } from '@/components/ui/card'
-import { email, z } from 'zod'
+import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -16,7 +16,7 @@ import { useForm } from 'react-hook-form'
 import { FaGoogle, FaGithub } from 'react-icons/fa'
 
 import { Alert, AlertTitle } from '@/components/ui/alert'
-import { OctagonAlertIcon, Router } from 'lucide-react'
+import { OctagonAlertIcon } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 import { authClient } from '@/lib/auth-client'
@@ -27,10 +27,10 @@ const formSchema = z
       message: 'Name is required'
     }),
     email: z.string().email(),
-    password: z.string().min(1, {
+    password: z.string().nonempty({
       message: 'Password is required'
     }),
-    confirmPassword: z.string().min(1, {
+    confirmPassword: z.string().nonempty({
       message: 'Password is required'
     })
   })
@@ -38,7 +38,6 @@ const formSchema = z
     message: 'Passwords do not match',
     path: ['confirmPassword']
   })
-
 export default function SignUpView() {
   const router = useRouter()
   const [pending, setPending] = useState(false)
@@ -220,9 +219,9 @@ export default function SignUpView() {
               </div>
             </form>
           </Form>
-          <div className="bg-radial from-green-700 to-green-900 relative hidden md:flex flex-col gap-y-4 items-center justify-center">
+          <div className="bg-radial from-sidebar-accent to-sidebar relative hidden md:flex flex-col gap-y-4 items-center justify-center">
             <img src="/logo.svg" alt="logo" className="h-[92px] w-[92px]" />
-            <p className="text-2xl font-semibold text-white">Video-SaaS</p>
+            <p className="text-2xl font-semibold text-white">Coach.AI</p>
           </div>
         </CardContent>
       </Card>
