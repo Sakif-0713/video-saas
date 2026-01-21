@@ -81,7 +81,6 @@ export default function SignInView() {
       }
     )
   }
-
   return (
     <div className="flex flex-col gap-6">
       <Card className="overflow-hidden p-0">
