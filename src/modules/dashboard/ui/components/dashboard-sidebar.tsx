@@ -40,8 +40,8 @@ const secondSections = [
 ]
 
 export default function DashboardSidebar() {
-  // const pathname = usePathname()
-  const pathname = '/meetings'
+  const pathname = usePathname()
+  // const pathname = '/meetings'
   return (
     <Sidebar>
       <SidebarHeader className="text-sidebar-accent-foreground">
