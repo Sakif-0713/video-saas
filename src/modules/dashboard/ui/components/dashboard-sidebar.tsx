@@ -14,7 +14,6 @@ import {
 } from '@/components/ui/sidebar'
 import { cn } from '@/lib/utils'
 import { BotIcon, StarIcon, VideoIcon } from 'lucide-react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import DashboardUserButton from './dashboard-user-button'
@@ -46,7 +45,7 @@ export default function DashboardSidebar() {
     <Sidebar>
       <SidebarHeader className="text-sidebar-accent-foreground">
         <Link href="/" className="flex items-center gap-2 px2 pt-2">
-          <Image src="/logo.svg" alt="logo" width={32} height={32} />
+          <img src="/logo.svg" alt="logo" width={32} height={32} />
           <p className="text-2xl font-semibold">Coach.AI</p>
         </Link>
       </SidebarHeader>
